@@ -3,7 +3,17 @@ package itis.socialtest;
 
 import itis.socialtest.entities.Post;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 
 /*
@@ -35,12 +45,22 @@ public class MainClass {
 
     private AnalyticsService analyticsService = new AnalyticsServiceImpl();
 
-    public static void main(String[] args) {
-        new MainClass().run("", "");
+    public static void main(String[] args) throws IOException {
+
+
+        List<String> postsTxt = Files.readAllLines(Paths.get("src/itis/socialtest/resources/PostDatabase.csv"), StandardCharsets.UTF_8);
+        for (String string : postsTxt) {
+            List<String> split = Arrays.asList(string.split(","));
+
+        }
+
+
+
+
     }
 
     private void run(String postsSourcePath, String authorsSourcePath) {
 
-
     }
+
 }
